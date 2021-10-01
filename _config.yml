@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "SHIHONG　DUAN / PhD "
 title_separator          : "-"
 name                     : &name "Shihong Duan"
-description              : &description "I am an associated professor in Computer Science Department, University of Science and Technology Beijing"
+description              : &description "I am an associate professor in Computer Science Department, University of Science and Technology Beijing"
 url                      : https://duanabao.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "duanabao/duanabao.github.io"
@@ -57,7 +57,7 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : &twitter
+  username               : erwayuanbao&twitter
 facebook:
   username               :
   app_id                 :
