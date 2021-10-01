@@ -7,10 +7,10 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Your Name / Site Title"
+title                    : "SHIHONG　DUAN / PhD "
 title_separator          : "-"
-name                     : &name "hello"
-description              : &description "personal description"
+name                     : &name "Shihong Duan"
+description              : &description "I am an associated professor in Computer Science Department, University of Science and Technology Beijing"
 url                      : https://duanabao.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "duanabao/duanabao.github.io"
