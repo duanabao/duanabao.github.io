@@ -80,9 +80,9 @@ analytics:
 
 # Site Author
 author:
-  name             : " Shihong Duan"
+  name             : "Shihong Duan"
   avatar           : "profile.png"
-  bio              : "Your biography for the left-hand sidebar"
+  bio              : "This is my bio！"
   location         : "Location"
   employer         :
   pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
