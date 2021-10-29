@@ -9,7 +9,7 @@
 locale                   : "en-US"
 title                    : "Shihong Duan"
 title_separator          : "-"
-name                     : &name "Shihong Duan"
+name                     : &name "Shihong Duan, PhD"
 description              : &description "Associate professor in USTB"
 url                      : https://duanabao.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
