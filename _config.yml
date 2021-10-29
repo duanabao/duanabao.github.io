@@ -7,9 +7,9 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Shihong Duan"
+title                    : "SHIHONG　DUAN / PhD, USTB "
 title_separator          : "-"
-name                     : &name "Shihong Duan, PhD"
+name                     : &name "Shihong Duan"
 description              : &description "Associate professor in USTB"
 url                      : https://duanabao.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -90,7 +90,7 @@ author:
   pubmed           :
   orcid            : "http://orcid.org/0000-0001-9259-3883"
   googlescholar    : "https://scholar.google.com/citations?user=fiaPSmgAAAAJ"
-  email            : "rob.williams@wustl.edu"
+  email            : "duansh@ustb.edu.cn"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -99,8 +99,8 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "jayrobwilliams"
-  gitlab           : "jayrobwilliams"
+  github           : "duanabao"
+  gitlab           : "duanabao"
   google_plus      :
   keybase          :
   instagram        :
