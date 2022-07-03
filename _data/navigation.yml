@@ -1,6 +1,6 @@
 # main links links
 main:
-  - title: "Publications"
+  - title: "公司的主要业务"
     url: /publications/
     
   - title: "Research"
@@ -9,10 +9,10 @@ main:
   - title: "Teaching"
     url: /teaching/
 
-  - title: "Software"
+  - title: "公司组织和人员架构"
     url: /software/
 
-  - title: "Posts"
+  - title: "公司新闻"
     url: /posts/
     
   - title: "CV"
