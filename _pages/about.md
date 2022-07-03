@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "About me"
+title: "公司简介"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Welcome! I am an Associated Professor at [University of Science and Technology Beijing, China](https://www.ustb.edu.cn/) 
+北京利凯国际物流有限公司主要是一家。。。。[University of Science and Technology Beijing, China](https://www.ustb.edu.cn/) 
 
 and [Department of Political Science](https://polisci.wustl.edu/) at
 [Washington University in St. Louis](https://wustl.edu/). I am also an
