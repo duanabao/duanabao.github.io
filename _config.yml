@@ -9,8 +9,8 @@
 locale                   : "en-US"
 title                    : "北京利凯国际物流有限公司 "
 title_separator          : "-"
-name                     : &name "Shihong Duan"
-description              : &description "Associate professor in USTB"
+name                     : &name "有信誉的国际物流公司"
+description              : &description "北京朝阳芳苑里"
 url                      : https://duanabao.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "duanabao/duanabao.github.io"
@@ -62,7 +62,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 : profile.png # Open Graph/Twitter default site image
+og_image                 : logo.png # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
