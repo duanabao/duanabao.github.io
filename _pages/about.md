@@ -8,8 +8,8 @@ redirect_from:
   - /about.html
 ---
 
-Welcome! I am a Postdoctoral Research Fellow in the
-[Weidenbaum Center on the Economy, Government, and Public Policy](https://wc.wustl.edu/) 
+Welcome! I am an Associated Professor at [University of Science and Technology Beijing, China](https://www.ustb.edu.cn/) 
+
 and [Department of Political Science](https://polisci.wustl.edu/) at
 [Washington University in St. Louis](https://wustl.edu/). I am also an
 affiliated researcher with the
