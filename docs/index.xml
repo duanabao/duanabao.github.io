@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cheng Xu&#39;s Website ! on Cheng XU（徐 诚）</title>
+    <link>/docs/</link>
+    <description>Recent content in Cheng Xu&#39;s Website ! on Cheng XU（徐 诚）</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Nov 2023 14:00:00 +0000</lastBuildDate>
+    <atom:link href="/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Home</title>
+      <link>/docs/home/</link>
+      <pubDate>Wed, 01 Nov 2023 14:00:00 +0000</pubDate>
+      <guid>/docs/home/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;I am currently with the Microarchitecture and Integrated Circuit Laboratory (MICL), in &lt;a href=&#34;http://scce.ustb.edu.cn/&#34;&gt;School of Computer and Communication Engineering&lt;/a&gt;, &lt;a href=&#34;https://www.ustb.edu.cn/&#34;&gt;University of Science and Technology Beijing (USTB)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I am leading the &lt;em&gt;&lt;strong&gt;Swarm Intelligence and Collabrative Computing&lt;/strong&gt;&lt;/em&gt; (SICC) Group, and our research interests are in the areas of wireless localization, statistical inference and collaborative computing methods to drive cluster robots to perform complex tasks autonomously and collaboratively in uncertain environments based on multi-intelligent body collaborative decision making.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Research</title>
+      <link>/docs/research/</link>
+      <pubDate>Thu, 02 Nov 2023 14:00:00 +0000</pubDate>
+      <guid>/docs/research/</guid>
+      <description>&lt;p&gt;Part of this page still needs to be completed ! I am working on this : )&lt;/p&gt;
+&lt;h2 id=&#34;swarm-robotics&#34;&gt;Swarm Robotics&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;/img/Swarm-robotics.webp&#34; alt=&#34;system&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I am deeply passionate about exploring the fascinating world of swarm robotics, a cutting-edge field at the intersection of robotics, artificial intelligence, and collective behavior.&lt;/p&gt;
+&lt;h3 id=&#34;what-is-swarm-robotics&#34;&gt;What is Swarm Robotics?&lt;/h3&gt;
+&lt;p&gt;Swarm robotics involves the study of large groups of relatively simple robots that exhibit collective intelligence, similar to social insects in nature. These robots collaborate, communicate, and coordinate their actions to accomplish tasks, mirroring the behaviors observed in natural swarms. This area of research draws inspiration from biological systems, aiming to create intelligent robotic systems capable of solving complex problems through decentralized cooperation.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Publications</title>
+      <link>/docs/publications/</link>
+      <pubDate>Fri, 03 Nov 2023 14:00:00 +0000</pubDate>
+      <guid>/docs/publications/</guid>
+      <description>&lt;p&gt;This is a FULL list of my &lt;em&gt;first/correspoding-author publications&lt;/em&gt; sorted by &lt;strong&gt;year&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;My research mainly focuses on the topics of &lt;a href=&#34;/docs/publications_sr/&#34;&gt;Swarm Robotics&lt;/a&gt;, &lt;a href=&#34;/docs/publications_ds/&#34;&gt;Distributed Security&lt;/a&gt;, and &lt;a href=&#34;/docs/publications_qml/&#34;&gt;Quantum Machine Learning&lt;/a&gt;. Featured articles could also be referred to the &lt;a href=&#34;/docs/research/&#34; title=&#34;interests&#34;&gt;Research&lt;/a&gt;. Simply click on the above links to see the lists organized by topics.&lt;/p&gt;
+&lt;p&gt;You may click on the paper title to see a brief introduction or supplementary materials about each article.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Projects</title>
+      <link>/docs/project/</link>
+      <pubDate>Fri, 03 Nov 2023 14:00:00 +0000</pubDate>
+      <guid>/docs/project/</guid>
+      <description>This page is still under construction !
+MatSwarm
+Active Collaborative searching model and key algorithms for emergency rescue in uncertain environment National Science Foundation of China (NSFC) Blockchain Privacy Protection Technology Based on Confidential Computing Shandong Provincial Natural Science Foundation Smart Computing Joint Fund Closed TOA Signal Model and Key Algorithms for Emergency Rrescue Localization China Postdoctoral Science Foundation Key Technologies of Wearable Human Movement Tracking Guangdong Basic and Applied Basic Research Foundation Collaborative Localization and Navigation for Emergency Rescue in Blind Environments China National Postdoctoral Program for Innovative Talents Key Technologies of Cooperative Target Tracking Fundamental Research Funds for the Central Universities Collaborative Architecture of Cluster Tasks in Unstable Environment Institute of Automation, Chinese Academy of Sciences </description>
+    </item>
+    <item>
+      <title>Open positions</title>
+      <link>/docs/openings/</link>
+      <pubDate>Fri, 03 Nov 2023 14:00:00 +0000</pubDate>
+      <guid>/docs/openings/</guid>
+      <description>&lt;p&gt;Being an advisor to students is the best part of my job. Have a look at my &lt;a href=&#34;/docs/research/&#34; title=&#34;interests&#34;&gt;research interests&lt;/a&gt; and &lt;a href=&#34;/docs/publications/&#34; title=&#34;publications&#34;&gt;recent publications&lt;/a&gt;. If any of those grab you, send me with a CV and a short text describing your background.&lt;/p&gt;
+&lt;h2 id=&#34;for-graduates&#34;&gt;For graduates&lt;/h2&gt;
+&lt;p&gt;Generally, I am able to admit TWO to FOUR graduate students annually, including &lt;strong&gt;TWO&lt;/strong&gt; students at the main campus (Location: Beijing), and &lt;strong&gt;ONE to TWO&lt;/strong&gt; students at Shunde Innovation School (Location: Shunde, Guangdong) depending on the project execution status.&lt;/p&gt;
+&lt;p&gt;In addition, I also collaborate with other professors in the laboratory to co-supervise doctoral and master&amp;rsquo;s students. Generally, we jointly supervise no more than &lt;strong&gt;ONE&lt;/strong&gt; doctoral student and &lt;strong&gt;THREE&lt;/strong&gt; master&amp;rsquo;s students each year.&lt;/p&gt;
+&lt;p&gt;If you have any interest in getting enrolled in our group, please send me with a CV and a short text describing your background, to the following address: xucheng AT ustb.edu.cn.&lt;/p&gt;
+&lt;h2 id=&#34;for-undergraduates&#34;&gt;For undergraduates&lt;/h2&gt;
+&lt;p&gt;I am looking forward to outstanding undergraduates who are committed to swarm intelligence robot, deep learning and reinforcement learning. Those with good programming skills or solid mathematical background would be preferred.&lt;/p&gt;
+&lt;h2 id=&#34;potential-srtps&#34;&gt;Potential SRTPs&lt;/h2&gt;
+&lt;p&gt;For undergraduate students currently enrolled at University of Science and Technology Beijing, I can provide guidance for scientific innovation projects or participation in scientific competitions. The specific research topics and directions can be aligned with my research interests. The topic can either stem from my research background or be proposed by you, and we can discuss its feasibility together.&lt;/p&gt;
+&lt;p&gt;Below are some topics I recently consider potential research subjects, provided for reference. You may contact me if any of these, or part of it, interests you.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>/docs/about/</link>
+      <pubDate>Wed, 25 Oct 2023 14:00:00 +0000</pubDate>
+      <guid>/docs/about/</guid>
+      <description>I am currently with the Microarchitecture and Integrated Circuit Laboratory (MICL), in School of Computer and Communication Engineering, University of Science and Technology Beijing (USTB).
+I am leading the Swarm Intelligence and Collabrative Computing (SICC) Group, and our research interests are in the areas of wireless localization, statistical inference and collaborative computing methods to drive cluster robots to perform complex tasks autonomously and collaboratively in uncertain environments based on multi-agent collaborative decision making.</description>
+    </item>
+    <item>
+      <title>Publications on Topic of Swarm Robotics</title>
+      <link>/docs/publications_sr/</link>
+      <pubDate>Wed, 01 Nov 2023 14:00:00 +0000</pubDate>
+      <guid>/docs/publications_sr/</guid>
+      <description>Wang R, Jing Sun Xu C*, Li R, Duan S, Zhang X. Reinforcement Learning Compensated Filter for Multi-agents Cooperative Localization[C]. 2024 lEEE Internationa.Conference on Acoustics, Speech and Signal Procesing (IEEE ICASSP 2024), Seoul, Korea, 14-19 April 2024.
+Xu C, Su R, Wang R, Duan S*. Self-Attention Factor Graph Neural Network for Multi-Agent Collaborative Target Tracking[J]. IEEE Internet of Things Journal, 2024: 1–1. (online)
+Wang R, Xu C*, Wu H, Shi Y, Duan S, Zhang X.</description>
+    </item>
+    <item>
+      <title>Publications on Topic of Quantum Machine Learning</title>
+      <link>/docs/publications_qml/</link>
+      <pubDate>Wed, 01 Nov 2023 14:00:00 +0000</pubDate>
+      <guid>/docs/publications_qml/</guid>
+      <description>Chen W, Wan J, Ye F, Wang R, Xu C*. QMARL: A Quantum Multi-Agent Reinforcement Learning Framework for Swarm Robots Navigation[C]. 2nd Workshop on Signal Processing for Autonomous Systems in 2024 lEEE Internationa.Conference on Acoustics, Speech and Signal Procesing (IEEE ICASSP 2024), Seoul, Korea, 14-19 April 2024. PDF
+Wan J, Xu C*, Chen W, Wang R, Zhang X*. Abrupt moving target tracking based on quantum enhanced particle filter[J]. **_ISA Transactions, 2023: S001905782300068X.</description>
+    </item>
+    <item>
+      <title>Publications on Topic of Distributed Scurity</title>
+      <link>/docs/publications_ds/</link>
+      <pubDate>Wed, 01 Nov 2023 14:00:00 +0000</pubDate>
+      <guid>/docs/publications_ds/</guid>
+      <description>Wang R, Xu C*, Ye F, Tang S, Zhang X*. S-MBDA: A Blockchain-Based Architecture for Secure Storage and Sharing of Material Big-Data[J]. IEEE Internet of Things Journal, 2024: 1–1. (online)
+Wang R, Xu C*, Dong R, Luo Z, Zheng R, Zhang X*. A secured big-data sharing platform for materials genome engineering: State-of-the-art, challenges and architecture[J]. Future Generation Computer Systems, 2023, 142: 59–74. PDF</description>
+    </item>
+    <item>
+      <title></title>
+      <link>/docs/projects/matswarm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/docs/projects/matswarm/</guid>
+      <description>This is supplementary video for the paper MatSwarm. v1-Introduction of MatSwarm: This video presents the backgrounds of the NMDMS platform, and introduces MatSwarm framework as a whole on its basis. This is supplementary video for the paper MatSwarm. v2-MatSwarm-procedures: This video details the procedures of swarm learning tasks based on MatSwarm. This is supplementary video for the paper MatSwarm. v3-MatSwarm-operations: This video demonstrates the practical operation process of federated tasks based on MatSwarm.</description>
+    </item>
+  </channel>
+</rss>
