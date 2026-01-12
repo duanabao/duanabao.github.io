@@ -127,57 +127,57 @@
   </div>
 
   <div class="content">
-    <p><span style="font-weight: bold;">Physics-Informed Safe Multi-Agent Reinforcement Learning for Swarm Robots</span></p>
-    <p>物理信息驱动的安全多智能体强化学习 [<a href="./pinn-safe-marl.md">Detailed Notes</a>]</p>
+    <p><span style="font-weight: bold;">Rigidity-Constrained Physics-Informed Multi-Agent RL</span></p>
+    <p>基于几何刚性约束的物理信息多智能体强化学习 [<a href="./pinn-safe-marl.md">Detailed Notes</a>]</p>
     <br/>
 
-    <p><strong>Research Goal:</strong> Develop safe and efficient multi-robot control algorithms that incorporate physics priors and safety guarantees.</p>
+    <p><strong>Research Goal:</strong> Develop multi-robot formation control algorithms using PINN to encode <strong>geometric rigidity constraints</strong> with <strong>consensus-based</strong> distributed control.</p>
     <br/>
 
-    <p><strong>Key Technologies:</strong></p>
+    <p><strong>Core Concepts:</strong></p>
     <ul>
-      <li><span style="font-weight: bold;">Physics-Informed Neural Networks (PINN)</span> - Encode robot dynamics and physical constraints</li>
-      <li><span style="font-weight: bold;">Control Barrier Functions (CBF)</span> - Real-time safety guarantees</li>
-      <li><span style="font-weight: bold;">Hamilton-Jacobi Reachability</span> - Safety-critical neighbor selection</li>
-      <li><span style="font-weight: bold;">Decentralized MARL</span> - Scalable multi-agent training</li>
+      <li><span style="font-weight: bold;">Rigidity Theory</span> - Distance/Bearing rigidity for formation shape preservation</li>
+      <li><span style="font-weight: bold;">Port-Hamiltonian Consensus</span> - Energy-based consensus with stability guarantees</li>
+      <li><span style="font-weight: bold;">PINN for Geometric Constraints</span> - Encode rigidity matrix constraints in neural networks</li>
+      <li><span style="font-weight: bold;">Graph Neural Networks</span> - Handle dynamic neighbor topology</li>
     </ul>
     <br/>
 
     <p><strong>Core References:</strong></p>
     <div class="pub-item">
       <span class="pub-year">2025</span>
-      <div class="pub-title">MAD-PINN: A Decentralized Physics-Informed Machine Learning Framework for Safe and Optimal Multi-Agent Control</div>
-      <div class="pub-authors">arXiv:2509.23960</div>
-      <div class="pub-venue"><span class="label label-warning">Key Paper</span> [<a href="https://arxiv.org/abs/2509.23960">arXiv</a>] [<a href="https://openreview.net/forum?id=nwcFuR19AJ">OpenReview</a>]</div>
+      <div class="pub-title">phMARL: Physics-Informed Multi-Agent RL for Distributed Multi-Robot Problems</div>
+      <div class="pub-authors">IEEE Transactions on Robotics (TRO)</div>
+      <div class="pub-venue"><span class="label label-danger">Key Paper</span> [<a href="https://arxiv.org/abs/2401.00212">arXiv</a>] [<a href="https://github.com/EduardoSebastianRodriguez/phMARL">Code</a>] <em>Port-Hamiltonian + Geometric Constraints</em></div>
     </div>
 
     <div class="pub-item">
       <span class="pub-year">2023</span>
-      <div class="pub-title">Safe Multi-Agent Reinforcement Learning for Multi-Robot Control (MACPO)</div>
+      <div class="pub-title">GCBF+: Learning Safe Control for Multi-Robot Systems</div>
+      <div class="pub-authors">MIT CSAIL - CoRL 2023</div>
+      <div class="pub-venue"><span class="label label-warning">GNN+Safety</span> [<a href="https://arxiv.org/abs/2311.13714">arXiv</a>] [<a href="https://github.com/MIT-REALM/gcbfplus">Code</a>] <em>Graph CBF for Scalable Safety</em></div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-year">2025</span>
+      <div class="pub-title">MAD-PINN: Decentralized Physics-Informed ML for Safe Multi-Agent Control</div>
+      <div class="pub-authors">arXiv:2509.23960</div>
+      <div class="pub-venue"><span class="label label-info">PINN+Safety</span> [<a href="https://arxiv.org/abs/2509.23960">arXiv</a>]</div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-year">2023</span>
+      <div class="pub-title">MACPO: Safe Multi-Agent RL for Multi-Robot Control</div>
       <div class="pub-authors">Artificial Intelligence</div>
       <div class="pub-venue"><span class="label label-info">Benchmark</span> [<a href="https://www.sciencedirect.com/science/article/abs/pii/S0004370223000516">Paper</a>] [<a href="https://github.com/chauncygu/Safe-Multi-Agent-Mujoco">Code</a>]</div>
-    </div>
-
-    <div class="pub-item">
-      <span class="pub-year">2025</span>
-      <div class="pub-title">Multi-robot Hierarchical Safe RL with UUB Constraints</div>
-      <div class="pub-authors">Scientific Reports (Nature)</div>
-      <div class="pub-venue"><span class="label label-info">Safety</span> [<a href="https://www.nature.com/articles/s41598-025-89285-6">Paper</a>]</div>
-    </div>
-
-    <div class="pub-item">
-      <span class="pub-year">2025</span>
-      <div class="pub-title">Physics-Informed Reward Shaped RL Control of Robot Manipulator (PI-DDPG)</div>
-      <div class="pub-authors">ScienceDirect</div>
-      <div class="pub-venue"><span class="label label-info">PINN+RL</span> [<a href="https://www.sciencedirect.com/science/article/pii/S2090447925003363">Paper</a>]</div>
     </div>
 
     <br/>
     <p><strong>Graduate Research Topic:</strong></p>
     <p style="background: #e8f5e9; padding: 15px; border-left: 4px solid #4caf50;">
-      <strong>基于物理信息神经网络的安全多机器人协同定位与导航</strong><br/>
-      Physics-Informed Safe MARL for Cooperative Localization and Navigation in Swarm Robots<br/><br/>
-      <em>Key innovations:</em> PINN-constrained localization, safety-aware neighbor selection, Sim2Real transfer with physics consistency
+      <strong>基于几何刚性约束的物理信息多智能体强化学习</strong><br/>
+      Rigidity-Constrained Physics-Informed MARL for Formation Control<br/><br/>
+      <em>Key innovations:</em> PINN-encoded rigidity constraints, Port-Hamiltonian consensus policy, GNN-based scalable safety
     </p>
   </div>
 

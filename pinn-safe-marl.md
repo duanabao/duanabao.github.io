@@ -4,6 +4,94 @@
 
 **Physics-Informed Neural Networks (PINN) + Safe Multi-Agent Reinforcement Learning (MARL)** 是将物理先验知识与安全约束强化学习相结合的前沿研究方向，旨在实现多智能体系统的安全、高效协同控制。
 
+**核心思想**: 利用PINN编码多智能体间的**几何约束关系**（距离、方位、刚性），结合**共识协议**实现分布式安全控制。
+
+---
+
+## 〇、核心概念：几何约束与共识
+
+### 0.1 多智能体几何关系
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│           Multi-Agent Geometric Constraints                  │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│   Agent i ●───────────────● Agent j                         │
+│            \     d_ij    /                                   │
+│             \           /                                    │
+│         β_ik \         / β_jk                               │
+│               \       /                                      │
+│                ●─────●                                       │
+│              Agent k                                         │
+│                                                              │
+│   Constraints:                                               │
+│   • Distance: ||p_i - p_j|| = d_ij                          │
+│   • Bearing:  (p_j - p_i)/||p_j - p_i|| = b_ij              │
+│   • Rigidity: rank(R) = dn - d(d+1)/2                       │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### 0.2 刚性理论 (Rigidity Theory)
+
+| 概念 | 定义 | 应用 |
+|------|------|------|
+| **Distance Rigidity** | 距离约束唯一确定编队形状 | 编队保持 |
+| **Bearing Rigidity** | 方位约束唯一确定编队 | 视觉导航 |
+| **Infinitesimal Rigidity** | 刚性矩阵满秩 | 稳定性分析 |
+
+**刚性矩阵 (Rigidity Matrix)**:
+$$R(p) = \begin{bmatrix} \frac{\partial g_1}{\partial p_1} & \cdots & \frac{\partial g_1}{\partial p_n} \\ \vdots & \ddots & \vdots \\ \frac{\partial g_m}{\partial p_1} & \cdots & \frac{\partial g_m}{\partial p_n} \end{bmatrix}$$
+
+其中 $g_k$ 是几何约束函数。
+
+### 0.3 共识协议 (Consensus Protocol)
+
+**基本共识**:
+$$\dot{x}_i = \sum_{j \in \mathcal{N}_i} a_{ij}(x_j - x_i)$$
+
+**Port-Hamiltonian 共识**:
+$$\dot{x} = (J - R) \nabla H(x)$$
+
+其中:
+- $J$ 是反对称矩阵（能量守恒）
+- $R$ 是正半定矩阵（能量耗散）
+- $H(x)$ 是 Hamiltonian 函数（系统能量）
+
+### 0.4 PINN 在几何约束中的作用
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│              PINN for Geometric Constraints                  │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│   Neural Network Input: (p_i, p_j, v_i, v_j, t)             │
+│                    ↓                                         │
+│   ┌──────────────────────────────────┐                      │
+│   │         PINN Architecture        │                      │
+│   │  ┌─────────────────────────────┐ │                      │
+│   │  │   Geometric Loss (PDE)      │ │                      │
+│   │  │   • Distance constraint     │ │                      │
+│   │  │   • Bearing constraint      │ │                      │
+│   │  │   • Rigidity preservation   │ │                      │
+│   │  └─────────────────────────────┘ │                      │
+│   │  ┌─────────────────────────────┐ │                      │
+│   │  │   Consensus Loss            │ │                      │
+│   │  │   • Energy conservation     │ │                      │
+│   │  │   • Stability (Lyapunov)    │ │                      │
+│   │  └─────────────────────────────┘ │                      │
+│   │  ┌─────────────────────────────┐ │                      │
+│   │  │   Data Loss                 │ │                      │
+│   │  │   • Trajectory matching     │ │                      │
+│   │  └─────────────────────────────┘ │                      │
+│   └──────────────────────────────────┘                      │
+│                    ↓                                         │
+│   Output: Control action u_i (satisfies constraints)        │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+```
+
 ---
 
 ## 一、研究背景与动机
@@ -35,7 +123,114 @@
 
 ## 二、核心论文精读
 
-### 2.1 MAD-PINN (2025) ⭐ 必读
+### 2.1 phMARL (2024-2025) ⭐⭐ 最核心论文
+
+**论文信息:**
+- 标题: Physics-Informed Multi-Agent Reinforcement Learning for Distributed Multi-Robot Problems
+- 链接: [arXiv:2401.00212](https://arxiv.org/abs/2401.00212)
+- 发表: **IEEE Transactions on Robotics (TRO) 2025**
+- 代码: [GitHub](https://github.com/EduardoSebastianRodriguez/phMARL)
+- 主页: [Project Page](https://eduardosebastianrodriguez.github.io/phMARL/)
+
+**核心思想:**
+
+用 **Port-Hamiltonian 结构** 编码多智能体的几何关系和能量守恒：
+
+$$\dot{x} = (J(x) - R(x)) \nabla H(x) + g(x)u$$
+
+**三大关键技术:**
+
+| 技术 | 作用 | 与几何/共识的关系 |
+|------|------|-------------------|
+| **Port-Hamiltonian Policy** | 策略网络结构 | 编码能量守恒和智能体交互 |
+| **Self-Attention** | 处理邻居信息 | 稀疏表示，处理动态拓扑 |
+| **Graph Structure** | 建模网络拓扑 | 几何约束通过图传递 |
+
+**Port-Hamiltonian 与共识的联系:**
+
+```python
+# phMARL 中的 Port-Hamiltonian 策略
+class PortHamiltonianPolicy(nn.Module):
+    def __init__(self):
+        self.J = SkewSymmetricMatrix()  # 能量守恒 (共识)
+        self.R = PositiveSemidefinite()  # 能量耗散 (稳定性)
+        self.H = HamiltonianNetwork()    # 系统能量 (几何约束)
+        self.attention = SelfAttention() # 邻居选择
+
+    def forward(self, state, neighbors):
+        # 1. 编码几何关系
+        edge_features = self.encode_geometry(state, neighbors)
+
+        # 2. 注意力机制选择重要邻居
+        neighbor_info = self.attention(edge_features)
+
+        # 3. Port-Hamiltonian 动力学
+        dH = self.H.gradient(state)
+        action = (self.J - self.R) @ dH + neighbor_info
+
+        return action
+```
+
+**实验验证:**
+- 任务: Flocking, Formation Control, Cooperative Navigation
+- 平台: Georgia Tech Robotarium (真实机器人)
+- 结果: **Zero-shot sim-to-real transfer**, 可扩展到 50+ 机器人
+
+---
+
+### 2.2 GCBF+ (CoRL 2023) ⭐⭐ 安全+图结构
+
+**论文信息:**
+- 标题: Learning Safe Control for Multi-Robot Systems: Methods, Verification, and Open Challenges
+- 链接: [arXiv:2311.13714](https://arxiv.org/abs/2311.13714)
+- 团队: **MIT CSAIL**
+- 代码: [GitHub - MIT-REALM/gcbfplus](https://github.com/MIT-REALM/gcbfplus)
+
+**核心思想:**
+
+用**图神经网络 (GNN)** 学习可扩展的 **Control Barrier Function (CBF)**:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  GCBF+ Architecture                                          │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  Input: Multi-robot state graph G = (V, E)                  │
+│           V = {robot states}                                 │
+│           E = {pairwise geometric relations}                 │
+│                                                              │
+│  ┌───────────────┐                                          │
+│  │  GNN Encoder  │ ─── Message Passing on Graph             │
+│  └───────────────┘                                          │
+│          │                                                   │
+│          ▼                                                   │
+│  ┌───────────────┐                                          │
+│  │  CBF Network  │ ─── h(x) > 0 defines safe set           │
+│  └───────────────┘                                          │
+│          │                                                   │
+│          ▼                                                   │
+│  ┌───────────────┐                                          │
+│  │ Safe Action   │ ─── ḣ(x,u) + α·h(x) ≥ 0                 │
+│  └───────────────┘                                          │
+│                                                              │
+│  Key: GNN enables zero-shot scaling to more robots          │
+│                                                              │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**与几何约束的关系:**
+- 边特征 (Edge Features) 编码机器人间的几何关系
+- GNN消息传递保持几何约束的传播
+- CBF保证安全距离约束 h(x) = ||p_i - p_j|| - d_safe
+
+**实验结果:**
+- 任务: Multi-robot collision avoidance, formation control
+- 扩展: 训练4机器人，部署64+机器人
+- 平台: Crazyflie quadrotors (真实验证)
+
+---
+
+### 2.3 MAD-PINN (2025) ⭐ 必读
 
 **论文信息:**
 - 标题: MAD-PINN: A Decentralized Physics-Informed Machine Learning Framework for Safe and Optimal Multi-Agent Control
@@ -299,117 +494,179 @@ class PINN(nn.Module):
 
 ### 4.1 研究题目
 
-**基于物理信息神经网络的安全多机器人协同定位与导航**
+**基于几何刚性约束的物理信息多智能体强化学习**
 
-**Physics-Informed Safe Multi-Agent Reinforcement Learning for Cooperative Localization and Navigation in Swarm Robots**
+**Rigidity-Constrained Physics-Informed Multi-Agent Reinforcement Learning for Formation Control**
 
 ### 4.2 研究问题
 
-在多机器人集群导航中，如何同时保证：
-1. **物理一致性**: 动作符合机器人动力学约束
-2. **安全性**: 避免碰撞，满足状态约束
-3. **协同效率**: 多机器人高效协作完成任务
-4. **可扩展性**: 算法能扩展到大规模集群
+在多机器人编队控制中，如何利用PINN编码**几何刚性约束**实现安全、可扩展的分布式控制：
+
+1. **几何一致性**: PINN编码距离/方位刚性约束，保证编队形状
+2. **共识收敛**: Port-Hamiltonian结构保证能量耗散与共识收敛
+3. **安全保障**: 基于刚性矩阵的碰撞避免
+4. **可扩展性**: 图神经网络处理动态邻居拓扑
 
 ### 4.3 研究框架
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│              Physics-Informed Safe MARL Framework            │
+│       Rigidity-PINN Framework for Multi-Agent Control        │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
-│  ┌──────────────────┐    ┌──────────────────┐               │
-│  │  PINN Dynamics   │    │  Safety Module   │               │
-│  │  ─────────────── │    │  ─────────────── │               │
-│  │  • 机器人动力学  │    │  • CBF 安全约束  │               │
-│  │  • 传感器模型    │    │  • HJ 可达性    │               │
-│  │  • 环境物理      │    │  • 碰撞检测     │               │
-│  └────────┬─────────┘    └────────┬─────────┘               │
-│           │                       │                          │
-│           ▼                       ▼                          │
-│  ┌─────────────────────────────────────────────┐            │
-│  │           Multi-Agent RL Core               │            │
-│  │  ─────────────────────────────────────────  │            │
-│  │  • 去中心化 Actor-Critic                    │            │
-│  │  • 图神经网络通信                           │            │
-│  │  • 约束策略优化                             │            │
-│  └─────────────────────────────────────────────┘            │
-│                          │                                   │
-│                          ▼                                   │
-│  ┌─────────────────────────────────────────────┐            │
-│  │           Application Layer                 │            │
-│  │  ─────────────────────────────────────────  │            │
-│  │  • 协同定位 (与已有研究结合)                 │            │
-│  │  • 编队控制                                 │            │
-│  │  • 目标跟踪                                 │            │
-│  └─────────────────────────────────────────────┘            │
+│  Layer 1: Geometric Constraint Encoding (PINN)               │
+│  ┌─────────────────────────────────────────────────────┐    │
+│  │  • Distance Rigidity: ||p_i - p_j||² = d²_ij        │    │
+│  │  • Bearing Rigidity: b_ij = (p_j-p_i)/||p_j-p_i||   │    │
+│  │  • Rigidity Matrix: rank(R) ≥ dn - d(d+1)/2         │    │
+│  │  • PINN Loss: L = L_data + λ·L_rigidity             │    │
+│  └─────────────────────────────────────────────────────┘    │
+│                          ↓                                   │
+│  Layer 2: Port-Hamiltonian Consensus                         │
+│  ┌─────────────────────────────────────────────────────┐    │
+│  │  ẋ = (J - R) ∇H(x)                                  │    │
+│  │  • J: 反对称矩阵 (能量守恒)                          │    │
+│  │  • R: 正半定矩阵 (能量耗散 → 共识收敛)               │    │
+│  │  • H: Hamiltonian (编队势能 + 动能)                  │    │
+│  └─────────────────────────────────────────────────────┘    │
+│                          ↓                                   │
+│  Layer 3: Safe Multi-Agent RL                                │
+│  ┌─────────────────────────────────────────────────────┐    │
+│  │  • Graph Neural Network for neighbor aggregation    │    │
+│  │  • Self-Attention for sparse representation         │    │
+│  │  • CBF/HJ safety constraints                        │    │
+│  └─────────────────────────────────────────────────────┘    │
+│                          ↓                                   │
+│  Application: Formation Control, Flocking, SLAM              │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
 ### 4.4 具体研究点
 
-#### 研究点1: PINN约束的协同定位 (与已有工作结合)
+#### 研究点1: PINN编码刚性约束的编队控制
 
-**结合论文**: Cooperative localization based on reinforcement learning (JSAC 2024)
+**核心思想**: 用PINN学习满足刚性约束的编队控制策略
 
 **创新点**:
-- 用PINN编码相对定位的几何约束
-- 物理损失确保定位估计符合运动学模型
+- PINN损失函数包含刚性矩阵约束
+- 保证编队形状在控制过程中保持
 
 ```python
-class PINNLocalization:
-    def physics_loss(self, relative_pose, imu_data):
-        # 相对位姿应满足几何一致性
-        # ||p_i - p_j|| = d_ij (距离约束)
-        # rotation consistency
-        geometric_residual = self.check_geometry(relative_pose)
+class RigidityPINN(nn.Module):
+    def __init__(self, n_agents, dim=2):
+        self.n_agents = n_agents
+        self.dim = dim
 
-        # IMU积分应与位姿变化一致
-        kinematic_residual = self.check_kinematics(relative_pose, imu_data)
+    def rigidity_loss(self, positions, target_distances):
+        """
+        刚性约束损失: ||p_i - p_j||² - d²_ij = 0
+        """
+        loss = 0
+        for i in range(self.n_agents):
+            for j in range(i+1, self.n_agents):
+                dist_sq = torch.sum((positions[i] - positions[j])**2)
+                loss += (dist_sq - target_distances[i,j]**2)**2
+        return loss
 
-        return geometric_residual + kinematic_residual
+    def bearing_loss(self, positions, target_bearings):
+        """
+        方位刚性约束: b_ij = (p_j - p_i) / ||p_j - p_i||
+        """
+        loss = 0
+        for i, j in self.edges:
+            direction = positions[j] - positions[i]
+            bearing = direction / torch.norm(direction)
+            loss += torch.sum((bearing - target_bearings[i,j])**2)
+        return loss
+
+    def total_loss(self, positions, velocities, target):
+        L_data = self.mse(positions, target)
+        L_rigidity = self.rigidity_loss(positions, self.d_ij)
+        L_bearing = self.bearing_loss(positions, self.b_ij)
+        return L_data + λ1*L_rigidity + λ2*L_bearing
 ```
 
-#### 研究点2: 安全感知的邻居选择
+#### 研究点2: Port-Hamiltonian共识策略网络
+
+**核心思想**: 将phMARL的Port-Hamiltonian结构与刚性约束结合
 
 **创新点**:
-- 基于HJ可达性分析识别潜在碰撞风险
-- 动态调整通信拓扑，优先处理安全关键邻居
+- Hamiltonian函数编码编队势能
+- Port-Hamiltonian结构保证共识收敛
 
 ```python
-class SafetyAwareNeighborSelection:
-    def select_neighbors(self, agent_i, all_agents):
-        neighbors = []
-        for agent_j in all_agents:
-            # 计算可达集交集
-            reachable_set_i = self.compute_reachable_set(agent_i)
-            reachable_set_j = self.compute_reachable_set(agent_j)
+class RigidityHamiltonian(nn.Module):
+    """
+    H(x) = 1/2 Σ_i ||v_i||² + Σ_{(i,j)∈E} V_ij(||p_i-p_j||)
 
-            # 如果可达集有交集，说明有碰撞风险
-            if self.intersect(reachable_set_i, reachable_set_j):
-                neighbors.append(agent_j)
+    其中 V_ij 是编队势能函数:
+    V_ij(d) = k/2 * (d - d*_ij)²
+    """
+    def __init__(self, target_formation):
+        self.d_star = target_formation  # 目标距离矩阵
+        self.k = 1.0  # 弹性系数
 
-        return neighbors
+    def forward(self, positions, velocities):
+        # 动能
+        T = 0.5 * torch.sum(velocities**2)
+
+        # 编队势能 (基于刚性约束)
+        V = 0
+        for i, j in self.edges:
+            d_ij = torch.norm(positions[i] - positions[j])
+            V += 0.5 * self.k * (d_ij - self.d_star[i,j])**2
+
+        return T + V
+
+class PortHamiltonianPolicy(nn.Module):
+    def __init__(self):
+        self.J = SkewSymmetricNN()      # 能量守恒
+        self.R = PositiveSemidefiniteNN() # 耗散 → 共识
+        self.H = RigidityHamiltonian()    # 编队能量
+
+    def forward(self, state, neighbors):
+        grad_H = torch.autograd.grad(self.H(state), state)
+        action = (self.J(state) - self.R(state)) @ grad_H
+        return action
 ```
 
-#### 研究点3: Sim2Real物理一致性迁移
+#### 研究点3: 基于刚性的安全避碰
+
+**核心思想**: 利用刚性矩阵的零空间检测碰撞风险
 
 **创新点**:
-- PINN在仿真中学习物理模型
-- 物理约束提高Sim2Real迁移成功率
+- 刚性矩阵秩亏损表示编队退化/碰撞
+- 设计基于刚性的Control Barrier Function
 
 ```python
-class Sim2RealPINN:
-    def domain_adaptation(self):
-        # 仿真中的物理损失
-        sim_physics_loss = self.physics_loss(sim_data)
+class RigidityBasedCBF:
+    """
+    刚性约束下的安全避碰
 
-        # 少量真实数据微调
-        real_data_loss = self.data_loss(real_data)
+    CBF: h(x) = min_{(i,j)∈E} (||p_i - p_j|| - d_safe)
 
-        # 物理一致性作为迁移桥梁
-        total_loss = sim_physics_loss + real_data_loss
+    安全条件: ḣ(x) + α(h(x)) ≥ 0
+    """
+    def __init__(self, d_safe=0.5):
+        self.d_safe = d_safe
+
+    def barrier_function(self, positions):
+        min_dist = float('inf')
+        for i in range(len(positions)):
+            for j in range(i+1, len(positions)):
+                d = torch.norm(positions[i] - positions[j])
+                min_dist = min(min_dist, d)
+        return min_dist - self.d_safe
+
+    def safe_action(self, action, positions):
+        h = self.barrier_function(positions)
+        h_dot = self.barrier_derivative(positions, action)
+
+        # 如果违反安全约束，修正动作
+        if h_dot + self.alpha * h < 0:
+            action = self.project_to_safe(action, positions)
+        return action
 ```
 
 ### 4.5 实验设计
@@ -468,27 +725,34 @@ class Sim2RealPINN:
 
 | 库 | 描述 | 链接 |
 |---|------|------|
+| **phMARL** | Port-Hamiltonian MARL | [GitHub](https://github.com/EduardoSebastianRodriguez/phMARL) |
+| **GCBF+** | 图神经CBF安全控制 | [GitHub](https://github.com/MIT-REALM/gcbfplus) |
 | DeepXDE | PINN库 | [GitHub](https://github.com/lululxvi/deepxde) |
 | Safe-MARL | 安全MARL基准 | [GitHub](https://github.com/chauncygu/Safe-Multi-Agent-Mujoco) |
 | safety-gymnasium | 安全RL环境 | [GitHub](https://github.com/PKU-Alignment/safety-gymnasium) |
 | MAPPO | 多智能体PPO | [GitHub](https://github.com/marlbenchmark/on-policy) |
 | hj_reachability | HJ可达性 | [GitHub](https://github.com/StanfordASL/hj_reachability) |
+| Georgia Tech Robotarium | 真实机器人平台 | [Robotarium](https://www.robotarium.gatech.edu/) |
 
 ---
 
 ## 七、参考文献
 
-### 核心论文
+### 核心论文 (几何约束+共识)
 
-1. **MAD-PINN** (2025). A Decentralized Physics-Informed Machine Learning Framework for Safe and Optimal Multi-Agent Control. arXiv:2509.23960.
+1. **phMARL** (TRO 2025). Physics-Informed Multi-Agent Reinforcement Learning for Distributed Multi-Robot Problems. arXiv:2401.00212. ⭐⭐ **Port-Hamiltonian + 几何约束**
 
-2. **MACPO** (2023). Safe multi-agent reinforcement learning for multi-robot control. Artificial Intelligence.
+2. **GCBF+** (CoRL 2023). Learning Safe Control for Multi-Robot Systems: Methods, Verification, and Open Challenges. arXiv:2311.13714. ⭐⭐ **GNN + CBF安全**
 
-3. **PI-DDPG** (2025). Physics-informed reward shaped reinforcement learning control of a robot manipulator. ScienceDirect.
+3. **MAD-PINN** (2025). A Decentralized Physics-Informed Machine Learning Framework for Safe and Optimal Multi-Agent Control. arXiv:2509.23960.
 
-4. **PINN-MARL-Voltage** (2024). Physics-Informed Multi-Agent DRL for Distributed Voltage Control. ResearchGate.
+4. **MACPO** (2023). Safe multi-agent reinforcement learning for multi-robot control. Artificial Intelligence.
 
-5. **UBSRL** (2025). Multi-robot hierarchical safe reinforcement learning. Scientific Reports.
+5. **PI-DDPG** (2025). Physics-informed reward shaped reinforcement learning control of a robot manipulator. ScienceDirect.
+
+6. **PINN-MARL-Voltage** (2024). Physics-Informed Multi-Agent DRL for Distributed Voltage Control. ResearchGate.
+
+7. **UBSRL** (2025). Multi-robot hierarchical safe reinforcement learning. Scientific Reports.
 
 ### 综述论文
 
