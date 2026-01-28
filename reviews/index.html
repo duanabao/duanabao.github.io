@@ -139,6 +139,157 @@
   .review-files a:hover {
     text-decoration: underline;
   }
+  /* Statistics Summary */
+  .stats-summary {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0 30px 0;
+  }
+  .stat-card {
+    background: white;
+    padding: 20px 30px;
+    box-shadow: 2px 5px 5px #c9c9c9;
+    text-align: center;
+    min-width: 120px;
+  }
+  .stat-number {
+    font-size: 2em;
+    font-weight: bold;
+    color: #0066cc;
+  }
+  .stat-label {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
+  /* Venue Card - Collapsible */
+  .venue-card {
+    background: white;
+    box-shadow: 2px 5px 5px #c9c9c9;
+    margin-bottom: 15px;
+    border-left: 4px solid #0066cc;
+  }
+  .venue-header {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .venue-header:hover {
+    background: #f9f9f9;
+  }
+  .toggle-icon {
+    font-size: 0.8em;
+    color: #666;
+    margin-right: 10px;
+    transition: transform 0.2s;
+  }
+  .venue-card.expanded .toggle-icon {
+    transform: rotate(90deg);
+  }
+  .venue-name {
+    font-weight: bold;
+    font-size: 1.1em;
+    flex: 1;
+  }
+  .venue-name a {
+    color: #333;
+    text-decoration: none;
+  }
+  .venue-name a:hover {
+    color: #0066cc;
+    text-decoration: underline;
+  }
+  .review-count {
+    background: #d4edda;
+    color: #155724;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    font-weight: bold;
+  }
+  .review-quartile {
+    background: #d4edda;
+    color: #155724;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+  .venue-body {
+    display: none;
+    border-top: 1px solid #eee;
+  }
+  .venue-card.expanded .venue-body {
+    display: block;
+  }
+  .venue-intro {
+    padding: 15px 20px;
+    color: #555;
+    font-size: 0.95em;
+    line-height: 1.6;
+    background: #fafafa;
+  }
+  .venue-intro p {
+    margin-bottom: 10px;
+  }
+  .venue-details {
+    margin: 10px 0 0 20px;
+    color: #666;
+  }
+  .venue-details li {
+    margin: 5px 0;
+  }
+  .review-list {
+    padding: 0 20px 15px 20px;
+  }
+  .review-list-title {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    padding-top: 10px;
+  }
+  .paper-item {
+    padding: 10px 15px;
+    background: #f8f9fa;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    border-left: 3px solid #0066cc;
+  }
+  .paper-id {
+    display: inline-block;
+    background: #e9ecef;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 0.85em;
+    color: #666;
+    margin-right: 8px;
+  }
+  .paper-title-text {
+    color: #333;
+  }
+  .venue-actions {
+    padding: 10px 20px 15px 20px;
+    border-top: 1px solid #eee;
+  }
+  .btn-details {
+    display: inline-block;
+    background: #0066cc;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9em;
+  }
+  .btn-details:hover {
+    background: #0052a3;
+    color: white;
+    text-decoration: none;
+  }
 </style>
 
 <div id="main">
@@ -149,47 +300,129 @@
 
   <div class="content">
     <p>Personal records of academic review service. This page is not linked from the main website.</p>
-    <br/>
+
+    <!-- Statistics Summary -->
+    <div class="stats-summary">
+      <div class="stat-card">
+        <div class="stat-number">13</div>
+        <div class="stat-label">Total Reviews</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Journals</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Conferences</div>
+      </div>
+    </div>
 
     <!-- 2026 -->
     <div class="review-year">2026</div>
 
-    <div class="review-item">
-      <span class="review-type type-conference">Conf</span>
-      <span class="review-venue">
-        <a href="https://2026.ieeeicassp.org/" target="_blank">IEEE ICASSP 2026</a>
+    <!-- ICASSP 2026 -->
+    <div class="venue-card">
+      <div class="venue-header" onclick="toggleVenue(this)">
+        <span class="toggle-icon">&#9654;</span>
+        <span class="review-type type-conference">Conference</span>
+        <span class="venue-name">IEEE ICASSP 2026</span>
+        <span class="review-count">12 papers</span>
         <span class="review-if">CCF-B</span>
-      </span>
-      <span class="review-role">Reviewer</span>
-      <span class="review-files">[<a href="./2026/ICASSP/index.html">Details</a>]</span>
-      <span class="review-note">Jan 2026</span>
+      </div>
+      <div class="venue-body">
+        <div class="venue-intro">
+          <p><strong>IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)</strong> is the world's largest and most comprehensive technical conference focused on signal processing and its applications.</p>
+          <ul class="venue-details">
+            <li><strong>Organizer:</strong> IEEE Signal Processing Society</li>
+            <li><strong>Website:</strong> <a href="https://2026.ieeeicassp.org/" target="_blank">https://2026.ieeeicassp.org/</a></li>
+            <li><strong>CCF Ranking:</strong> B-class conference</li>
+            <li><strong>Review Period:</strong> January 2026</li>
+          </ul>
+        </div>
+        <div class="review-list">
+          <div class="review-list-title">Reviewed Papers (12)</div>
+          <div class="paper-item"><span class="paper-id">5000</span><span class="paper-title-text">DCFL: Dual End Constraint Federated Learning with an Adaptive Analytic Anchor</span></div>
+          <div class="paper-item"><span class="paper-id">5250</span><span class="paper-title-text">FEDPROTOALIGN: Federated Prototype Alignment under Identity Inconsistency for Gait Recognition</span></div>
+          <div class="paper-item"><span class="paper-id">9539</span><span class="paper-title-text">Arrhythmia Classification from Multi-Lead ECG Heatmaps: Comparing LSTM and QULTSF Sequence Models</span></div>
+          <div class="paper-item"><span class="paper-id">10521</span><span class="paper-title-text">FEDDMLA: A Dynamic Multi-Factor Layered Federated Aggregation Mechanism for Non-IID ECG Signal Diagnosis</span></div>
+          <div class="paper-item"><span class="paper-id">11497</span><span class="paper-title-text">Cochleogram-Driven Hybrid Quantum-Classical Model for Low-Complexity Speech Command Recognition</span></div>
+          <div class="paper-item"><span class="paper-id">11512</span><span class="paper-title-text">Where Are the Artifacts? Residual-Guided Representation Learning for Deepfake Detection and Localization</span></div>
+          <div class="paper-item"><span class="paper-id">13340</span><span class="paper-title-text">RFL-NLCP: Robust Federated Learning with Non-IID Data and Limited Client Participation</span></div>
+          <div class="paper-item"><span class="paper-id">13684</span><span class="paper-title-text">FedAUX: Regularization using Auxiliary Classifier for Enhancement in Federated Learning</span></div>
+          <div class="paper-item"><span class="paper-id">14708</span><span class="paper-title-text">Accelerating Federated Learning through Dropout of Renewable Neuron Parameters</span></div>
+          <div class="paper-item"><span class="paper-id">15648</span><span class="paper-title-text">Leveraging Time-Frequency Integration with Mamba for Long-Term Time Series Prediction</span></div>
+          <div class="paper-item"><span class="paper-id">15720</span><span class="paper-title-text">FedProx-CMP: A Proximal Regularization-Component Modulus Homomorphic Encryption Framework for Federated Learning with Non-IID Data</span></div>
+          <div class="paper-item"><span class="paper-id">18303</span><span class="paper-title-text">Shortcut Learning Susceptibility in Vision Classifiers</span></div>
+        </div>
+        <div class="venue-actions">
+          <a href="./2026/ICASSP/index.html" class="btn-details">View Full Details</a>
+        </div>
+      </div>
     </div>
 
-    <div class="review-item">
-      <span class="review-type type-journal">Journal</span>
-      <span class="review-venue">
-        <a href="https://www.nature.com/sdata/" target="_blank">Scientific Data</a>
-        <span class="review-if">IF: 5.8 (Q1)</span>
-      </span>
-      <span class="review-role">Reviewer</span>
-      <span class="review-files">[<a href="./2026/scientific-data/index.html">Details</a>]</span>
-      <span class="review-note">Jan 2026</span>
+    <!-- Scientific Data -->
+    <div class="venue-card">
+      <div class="venue-header" onclick="toggleVenue(this)">
+        <span class="toggle-icon">&#9654;</span>
+        <span class="review-type type-journal">Journal</span>
+        <span class="venue-name">Scientific Data</span>
+        <span class="review-count">1 paper</span>
+        <span class="review-if">IF: 5.8</span>
+        <span class="review-quartile">Q1</span>
+      </div>
+      <div class="venue-body">
+        <div class="venue-intro">
+          <p><strong>Scientific Data</strong> is an open-access, peer-reviewed journal published by Nature Portfolio (Springer Nature). The journal focuses on descriptions of scientifically valuable datasets.</p>
+          <ul class="venue-details">
+            <li><strong>Publisher:</strong> Nature Publishing Group (Springer Nature)</li>
+            <li><strong>Website:</strong> <a href="https://www.nature.com/sdata/" target="_blank">https://www.nature.com/sdata/</a></li>
+            <li><strong>ISSN:</strong> 2052-4463</li>
+            <li><strong>Impact Factor:</strong> 5.8 (2024), JCR Q1</li>
+            <li><strong>Review Period:</strong> January 2026</li>
+          </ul>
+        </div>
+        <div class="review-list">
+          <div class="review-list-title">Reviewed Papers (1)</div>
+          <div class="paper-item"><span class="paper-id">1-Characterization</span><span class="paper-title-text">Dataset characterization manuscript</span></div>
+        </div>
+        <div class="venue-actions">
+          <a href="./2026/scientific-data/index.html" class="btn-details">View Full Details</a>
+        </div>
+      </div>
     </div>
 
     <!--
     Template for adding new review records:
-
-    <div class="review-item">
-      <span class="review-type type-journal">Journal</span>  OR  <span class="review-type type-conference">Conf</span>
-      <span class="review-venue">VENUE NAME</span>
-      <span class="review-role">Reviewer / PC Member / AE</span>
-      <span class="review-note">Optional notes</span>
+    <div class="venue-card">
+      <div class="venue-header">
+        <span class="review-type type-journal">Journal</span> OR <span class="review-type type-conference">Conference</span>
+        <span class="venue-name"><a href="URL">VENUE NAME</a></span>
+        <span class="review-count">N papers</span>
+        <span class="review-if">IF: X.X / CCF-X</span>
+      </div>
+      <div class="venue-intro">
+        <p>Journal/Conference description...</p>
+        <ul class="venue-details">
+          <li><strong>Publisher:</strong> ...</li>
+          <li><strong>Review Period:</strong> ...</li>
+        </ul>
+      </div>
+      <div class="venue-actions">
+        <a href="./YEAR/VENUE/index.html" class="btn-details">View Details</a>
+      </div>
     </div>
     -->
 
   </div>
 
 </div>
+
+<script>
+function toggleVenue(header) {
+  var card = header.parentElement;
+  card.classList.toggle('expanded');
+}
+</script>
 
 </body>
 </html>
