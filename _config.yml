@@ -7,10 +7,10 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "SHIHONG　DUAN / PhD "
+title                    : "Shihong Duan / 段世红"
 title_separator          : "-"
 name                     : &name "Shihong Duan"
-description              : &description "I am an associate professor in Computer Science Department, University of Science and Technology Beijing"
+description              : &description "Associate Professor, School of Computer and Communication Engineering, University of Science and Technology Beijing. Multi-agent RL, swarm robotics, cooperative localization, and near-ground wireless sensing."
 url                      : https://duanabao.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "duanabao/duanabao.github.io"
@@ -57,7 +57,7 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : erwayuanbao&twitter
+  username               :
 facebook:
   username               :
   app_id                 :
@@ -73,7 +73,7 @@ social:
 
 # Analytics
 analytics:
-  provider               :  "google-universal" # false (default), "google", "google-universal", "custom"
+  provider               :  false # false (default), "google", "google-universal", "custom"
   google:
     tracking_id          :
 
@@ -82,34 +82,34 @@ analytics:
 author:
   name             : "Shihong Duan"
   avatar           : "profile.png"
-  bio              : "This is my bio！"
-  location         : "Location"
-  employer         :
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : "http://yourfullgooglescholarurl.com"
-  email            :
-  researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
-  uri              :
+  bio              : "Associate Professor at USTB. Multi-agent systems, swarm robotics, and wireless localization."
+  location         : "Beijing, China"
+  employer         : "University of Science and Technology Beijing"
+  pubmed           :
+  googlescholar    : "https://scholar.google.com/citations?user=KU-C0DsAAAAJ"
+  email            : "duansh@ustb.edu.cn"
+  researchgate     :
+  uri              : "https://faculty.ustb.edu.cn/ShihongDong/zh_CN/index.htm"
   bitbucket        :
   codepen          :
   dribbble         :
   flickr           :
   facebook         :
   foursquare       :
-  github           : "academicpages"
+  github           : "duanabao"
   google_plus      :
   keybase          :
   instagram        :
-  impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
+  impactstory      :
   lastfm           :
   linkedin         :
-  orcid            : "http://orcid.org/yourorcidurl"
+  orcid            : "https://orcid.org/0000-0001-8162-4269"
   pinterest        :
   soundcloud       :
-  stackoverflow    : # http://stackoverflow.com/users/123456/username
+  stackoverflow    :
   steam            :
   tumblr           :
-  twitter          : "erwayuanbao"
+  twitter          :
   vine             :
   weibo            :
   xing             :
@@ -255,7 +255,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Asia/Shanghai # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins

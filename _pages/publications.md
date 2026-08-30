@@ -5,9 +5,7 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if author.googlescholar %}
-  You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
-{% endif %}
+A selected list of recent and representative papers. The full record is on [Google Scholar](https://scholar.google.com/citations?user=KU-C0DsAAAAJ) and [DBLP](https://dblp.org/pid/156/7815.html).
 
 {% include base_path %}
 
