@@ -19,7 +19,7 @@ My current work focuses on **multi-agent reinforcement learning**, **cooperative
 News
 ======
 - **07/2026** Two papers accepted to [IEEE/RSJ IROS 2026](https://2026.ieee-iros.org/) (Pittsburgh): source navigation with time-series MCTS, and factor-graph-guided DRL for uncertainty-aware SLAM exploration.
-- **05/2026** Paper published at [IEEE ICASSP 2026](https://2026.ieeeicassp.org/): hierarchical MARL for task allocation.
+- **05/2026** Paper published at IEEE ICASSP 2026: hierarchical MARL for task allocation.
 - **2026** *Dynamic Deep Factor Graph for Multi-Agent Reinforcement Learning* published in **IEEE TPAMI**.
 - **2026** *Subgoal-Based Hierarchical Reinforcement Learning for Multiagent Collaboration* published in **IEEE TSMC**.
 - **01/2026** Survey on learning-based multi-robot active SLAM published in *Applied Sciences*.
@@ -33,4 +33,8 @@ Research
 - **WiFi / wearable sensing.** CSI-based driver activity recognition (WiDriver) and deep models for complex human activity (InnoHAR).
 - **Sim2Real and field systems.** Domain adaptation for robot navigation, plus embedded systems for heat metering, pipeline monitoring, and instrument recognition.
 
-Students interested in multi-agent RL, swarm localization, or SLAM exploration are welcome to email me with a CV and a short research statement.
+For students
+======
+I am looking for master's students in **multi-agent reinforcement learning**, **cooperative localization / tracking**, and **SLAM exploration**. Please email [duansh@ustb.edu.cn](mailto:duansh@ustb.edu.cn) with a CV and a short note on which of these topics you want to work on.
+
+Course materials for Reinforcement Learning: [USTBRLcourse](https://github.com/ustbmicl-courses/USTBRLcourse).

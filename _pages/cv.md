@@ -43,12 +43,6 @@ Publications
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-
 Teaching
 ======
   <ul>{% for post in site.teaching reversed %}
@@ -57,8 +51,8 @@ Teaching
 
 Patents
 ======
-* 9 granted Chinese invention patents (confirmed), including methods for RL-based source navigation, cooperative localization, multi-target tracking, and Sim2Real model construction.
-* Additional applications under examination, including a DRL decision-model visualization method (CN 202410690420.0).
+* Granted Chinese invention patents on cooperative localization, source navigation, multi-target tracking, and Sim2Real model construction.
+* Additional applications are under examination.
 
 Selected links
 ======
